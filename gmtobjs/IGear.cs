@@ -63,7 +63,7 @@ namespace PathfinderTools {
         /// <value>
         /// The group.
         /// </value>
-        strig Group {
+        string Group {
             get;
         }
     }

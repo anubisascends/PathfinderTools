@@ -40,9 +40,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Armor.cs" />
+    <Compile Include="Character.cs" />
     <Compile Include="Gear.cs" />
+    <Compile Include="GearCollection.cs" />
     <Compile Include="IGear.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Weapon.cs" />
+    <Compile Include="WeaponGroup.cs" />
+    <Compile Include="WeaponTraits.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\gmtglobal\gmtglobal.csproj">
+      <Project>{1FFD3277-0259-4954-AA26-13022B715F18}</Project>
+      <Name>gmtglobal</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
