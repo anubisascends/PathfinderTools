@@ -1,0 +1,14 @@
+﻿// Pathfinder  Tools Language File
+// Language: en-US (English US)
+// Version 1.0
+
+[GearGroups]
+GG001=Adventuring Gear
+GG002=Simple Melee Weapons
+GG003=Martial Melee Weapons
+GG004=Simple Ranged Weapons
+GG005=Martial Ranged Weapons
+GG006=Uncommon Simple Melee Weapons
+GG007=Uncommon Martial Melee Weapons
+GG008=Uncommon Exotic Melee Weapons
+GG009=Uncommon Martial Ranged Weapons
