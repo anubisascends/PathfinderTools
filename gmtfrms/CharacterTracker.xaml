@@ -1,0 +1,176 @@
+﻿<UserControl x:Class="PathfinderTools.WPF.CharacterTracker"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PathfinderTools.WPF"
+             xmlns:objs="clr-namespace:PathfinderTools;assembly=gmtobjs"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <TabControl TabStripPlacement="Right">
+        <TabControl.Resources>
+            <Style TargetType="{x:Type TabItem}">
+                <Setter Property="HeaderTemplate">
+                    <Setter.Value>
+                        <DataTemplate>
+                            <ContentPresenter Content="{TemplateBinding Content}">
+                                <ContentPresenter.LayoutTransform>
+                                    <RotateTransform Angle="90" />
+                                </ContentPresenter.LayoutTransform>
+                            </ContentPresenter>
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Padding" Value="3" />
+            </Style>
+        </TabControl.Resources>
+        <TabItem Header="List">
+            <ListBox HorizontalContentAlignment="Stretch" Name="m_characterList">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="270"/>
+                                <ColumnDefinition Width="135"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <!--Player/Character Name-->
+                            <GroupBox Header="Player/Character Name" Margin="0,0,2.5,0">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <TextBox Text="{Binding Title}"/>
+                                    <TextBlock Text="Character" Grid.Row="1"/>
+                                    <TextBox Text="{Binding Player}" Grid.Row="2"/>
+                                    <TextBlock Text="Player" Grid.Row="3"/>
+                                </Grid>
+                            </GroupBox>
+                            
+                            <!--Abilities-->
+                            <UniformGrid Grid.Column="1" Columns="6" Margin="2.5,0">
+                                <UniformGrid.Resources>
+                                    <local:AbilityScoreConverter x:Key="m_conv"/>
+                                    <Style TargetType="TextBox">
+                                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    </Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="HorizontalAlignment" Value="Center" />
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                    </Style>
+                                </UniformGrid.Resources>
+                                <GroupBox Header="STR">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <TextBox Text="{Binding Strength}"/>
+                                        <TextBlock Grid.Row="1" Text="{Binding Path=Strength, Converter={StaticResource m_conv}}"/>
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox Header="Dex">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <TextBox Text="{Binding Dexterity}"/>
+                                        <TextBlock Grid.Row="1" Text="{Binding Path=Dexterity, Converter={StaticResource m_conv}}"/>
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox Header="CON">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <TextBox Text="{Binding Constitution}"/>
+                                        <TextBlock Grid.Row="1" Text="{Binding Path=Constitution, Converter={StaticResource m_conv}}"/>
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox Header="INT">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <TextBox Text="{Binding Intelligence}"/>
+                                        <TextBlock Grid.Row="1" Text="{Binding Path=Intelligence, Converter={StaticResource m_conv}}"/>
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox Header="WIS">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <TextBox Text="{Binding Wisdom}"/>
+                                        <TextBlock Grid.Row="1" Text="{Binding Path=Wisdom, Converter={StaticResource m_conv}}"/>
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox Header="CHA">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <TextBox Text="{Binding Charisma}"/>
+                                        <TextBlock Grid.Row="1" Text="{Binding Path=Charisma, Converter={StaticResource m_conv}}"/>
+                                    </Grid>
+                                </GroupBox>
+                            </UniformGrid>
+                            
+                            <!--Defense-->
+                            <UniformGrid Grid.Column="2" Columns="3" Margin="2.52,0,0,0">
+                                <UniformGrid.Resources>
+                                    <Style TargetType="TextBox">
+                                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                    </Style>
+                                </UniformGrid.Resources>
+                                <GroupBox Header="AC">
+                                    <TextBox Text="{Binding ArmorClass}"/>
+                                </GroupBox>
+                                <GroupBox Header="TAC">
+                                    <TextBox Text="{Binding TouchArmorClass}"/>
+                                </GroupBox>
+                                <GroupBox Header="FFAC">
+                                    <TextBox Text="{Binding FlatFootedArmorClass}"/>
+                                </GroupBox>
+                                <GroupBox Header="CMD">
+                                    <TextBox Text="{Binding CMD}"/>
+                                </GroupBox>
+                                <GroupBox Header="HP">
+                                    <TextBox Text="{Binding HitPoints}"/>
+                                </GroupBox>
+                                <GroupBox Header="INIT">
+                                    <TextBox Text="{Binding InitiativeModifier}"/>
+                                </GroupBox>
+                            </UniformGrid>
+
+                            <!--Buttons-->
+                            <Button Grid.Row="1" Grid.ColumnSpan="10" HorizontalAlignment="Right"
+                                    Margin="2.5" Click="listItemRemove_Click" Tag="{Binding}">
+                                Remove
+                            </Button>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <objs:Character Strength="18" Dexterity="12" Constitution="13" Intelligence="10" Wisdom="8" Charisma="16"
+                                Title="Barb the Barbarian" Player="Rebecca" HitPoints="157" ArmorClass="16" TouchArmorClass="11"
+                                FlatFootedArmorClass="15" CMD="18" InitiativeModifier="3"/>
+                <objs:Character Title="Roger the Rogue" Player="Andrew" Strength="10" Dexterity="22" Constitution="11" 
+                                Intelligence="15" Wisdom="13" Charisma="19"/>
+            </ListBox>
+        </TabItem>
+    </TabControl>
+</UserControl>
