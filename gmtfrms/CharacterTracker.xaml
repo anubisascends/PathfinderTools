@@ -24,13 +24,17 @@
                 <Setter Property="Padding" Value="3" />
             </Style>
         </TabControl.Resources>
-        <TabItem Header="List">
+        
+        <TabItem Header="   List   ">
             <ListBox HorizontalContentAlignment="Stretch" Name="m_characterList">
+                <ListBox.Background>
+                    <ImageBrush ImageSource="Images/parchment.jpg"/>
+                </ListBox.Background>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
+                                <ColumnDefinition MaxWidth="300"/>
                                 <ColumnDefinition Width="270"/>
                                 <ColumnDefinition Width="135"/>
                             </Grid.ColumnDefinitions>
@@ -172,5 +176,7 @@
                                 Intelligence="15" Wisdom="13" Charisma="19"/>
             </ListBox>
         </TabItem>
+
+        <TabItem Header="    Gear    "></TabItem>
     </TabControl>
 </UserControl>

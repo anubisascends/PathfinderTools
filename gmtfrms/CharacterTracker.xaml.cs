@@ -19,8 +19,6 @@ namespace PathfinderTools.WPF {
     /// Interaction logic for CharacterTracker.xaml
     /// </summary>
     public partial class CharacterTracker : UserControl {
-        ObservableCollection<Character> mo_characters;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="CharacterTracker"/> class.
         /// </summary>
@@ -29,7 +27,6 @@ namespace PathfinderTools.WPF {
             m_characterList.Items.Clear( );
         }
 
-
         /// <summary>
         /// Gets or sets the characters.
         /// </summary>
@@ -37,12 +34,8 @@ namespace PathfinderTools.WPF {
         /// The characters.
         /// </value>
         public ObservableCollection<Character> Characters {
-            get {
-                return ( ObservableCollection<Character> )GetValue( CharactersProperty );
-            }
-            set {
-                SetValue( CharactersProperty, value );
-            }
+            get => ( ObservableCollection<Character> )GetValue( CharactersProperty );
+            set => setCharacters( value );
         }
 
         // Using a DependencyProperty as the backing store for Characters.  This enables animation, styling, binding, etc...
@@ -68,10 +61,12 @@ namespace PathfinderTools.WPF {
                 ls_title = ls_value;
             }
 
+            ls_message = string.Format( ls_message, lo_character.Title );
+
             MessageBoxResult le_result = MessageBox.Show( ls_message, ls_title, MessageBoxButton.YesNo, MessageBoxImage.Exclamation );
 
             if ( le_result == MessageBoxResult.Yes ) {
-
+                Characters.Remove( lo_character );
             }
 
         }

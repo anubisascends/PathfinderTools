@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gmtglobal", "gmtglobal\gmtg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gmtfrms", "gmtfrms\gmtfrms.csproj", "{2E3C0D45-18B0-4A5F-8DD8-B0D1DD47B30C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathfinderTools", "PathfinderTools\PathfinderTools.csproj", "{3794E391-9E36-4A4D-BFF8-43A6073389FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{2E3C0D45-18B0-4A5F-8DD8-B0D1DD47B30C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E3C0D45-18B0-4A5F-8DD8-B0D1DD47B30C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E3C0D45-18B0-4A5F-8DD8-B0D1DD47B30C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3794E391-9E36-4A4D-BFF8-43A6073389FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3794E391-9E36-4A4D-BFF8-43A6073389FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3794E391-9E36-4A4D-BFF8-43A6073389FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3794E391-9E36-4A4D-BFF8-43A6073389FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
